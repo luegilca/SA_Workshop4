@@ -1,0 +1,104 @@
+{
+	"variables": [],
+	"info": {
+		"name": "AS_Workshop4",
+		"_postman_id": "736ed403-2ca6-46be-d0b0-00770be6debe",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Ver productos",
+			"request": {
+				"url": "192.168.99.101:5001/products",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Crear producto",
+			"request": {
+				"url": "192.168.99.101:5001/products",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Chips\",\n\t\"description\": \"yummy\",\n\t\"price\": 199,\n\t\"stock\": 10\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Ver usuarios",
+			"request": {
+				"url": "192.168.99.101:5001/users",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Crear usuarios",
+			"request": {
+				"url": "192.168.99.101:5001/users",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"firstname\": \"Camilo\",\n\t\"lastname\": \"Dajer\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Ver cuentas",
+			"request": {
+				"url": "192.168.99.101:5000/accounts",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Crear cuenta",
+			"request": {
+				"url": "192.168.99.101:5000/accounts",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"firstname\": \"Camilo\",\n\t\"lastname\": \"Dajer\",\n\t\"balance\": 0,\n\t\"iduser\": 2\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
