@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  firstname: MyString
+  lastname: MyString
+  balance: 1.5
+  iduser: 1
+
+two:
+  firstname: MyString
+  lastname: MyString
+  balance: 1.5
+  iduser: 1

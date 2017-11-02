@@ -1,0 +1,19 @@
+version: '2'
+services:
+  storedb:
+    image: mysql
+    ports:
+      - "3309:3309"
+    environment:
+      MYSQL_ROOT_PASSWORD: 123
+      MYSQL_USER: arqsoft
+      MYSQL_PASSWORD: 123
+      MYSQL_DATABASE: laboratorioDev
+      MYSQL_HOST: storedb
+  storeapp:
+    build: .
+    command: bash -c "sleep 50 && rm -f tmp/pids/server.pid && bundle exec rails db:migrate && bundle exec rails s -p 5001 -b '0.0.0.0'"
+    ports:
+      - "5001:5001"
+    depends_on:
+      - storedb

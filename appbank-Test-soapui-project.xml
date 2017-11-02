@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="2b84e77f-d2bf-478e-b10f-b44e660ab49e" activeEnvironment="Default" name="appbank Test" soapui-version="5.3.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="4b3d4982-204b-421c-9fd6-127270561759" wsaVersion="NONE" name="wsbanks_binding" type="wsdl" bindingName="{urn:WashOutBank}wsbanks_binding" soapVersion="1_1" anonymous="optional" definition="http://192.168.99.101:5000/wsbanks/wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://192.168.99.101:5000/wsbanks/wsdl"><con:part><con:url>http://192.168.99.101:5000/wsbanks/wsdl</con:url><con:content><![CDATA[<definitions name="wsbanks" targetNamespace="urn:WashOutBank" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="urn:WashOutBank" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <schema targetNamespace="urn:WashOutBank" xmlns="http://www.w3.org/2001/XMLSchema"></schema>
+  </types>
+  <message name="make">
+    <part name="start" type="xsd:int" xsi:nillable="true"/>
+    <part name="end" type="xsd:int" xsi:nillable="true"/>
+    <part name="user" type="xsd:int" xsi:nillable="true"/>
+    <part name="amount" type="xsd:double" xsi:nillable="true"/>
+  </message>
+  <message name="makeResponse">
+    <part name="value" type="xsd:boolean" xsi:nillable="true"/>
+  </message>
+  <message name="check">
+    <part name="start" type="xsd:int" xsi:nillable="true"/>
+    <part name="end" type="xsd:int" xsi:nillable="true"/>
+    <part name="amount" type="xsd:double" xsi:nillable="true"/>
+  </message>
+  <message name="checkResponse">
+    <part name="value" type="xsd:boolean" xsi:nillable="true"/>
+  </message>
+  <portType name="wsbanks_port">
+    <operation name="make">
+      <input message="tns:make"/>
+      <output message="tns:makeResponse"/>
+    </operation>
+    <operation name="check">
+      <input message="tns:check"/>
+      <output message="tns:checkResponse"/>
+    </operation>
+  </portType>
+  <binding name="wsbanks_binding" type="tns:wsbanks_port">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="make">
+      <soap:operation soapAction="make"/>
+      <input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:WashOutBank"/>
+      </input>
+      <output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:WashOutBank"/>
+      </output>
+    </operation>
+    <operation name="check">
+      <soap:operation soapAction="check"/>
+      <input>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:WashOutBank"/>
+      </input>
+      <output>
+        <soap:body use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="urn:WashOutBank"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="service">
+    <port name="wsbanks_port" binding="tns:wsbanks_binding">
+      <soap:address location="http://192.168.99.101:5000/wsbanks/action"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://192.168.99.101:5000/wsbanks/action</con:endpoint></con:endpoints><con:operation id="963537ce-35c2-4695-a2e8-7e4399ba86d5" isOneWay="false" action="check" name="check" bindingOperationName="check" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="f0b3ef8d-62d6-497b-b6b5-eb53f000b97e" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.99.101:5000/wsbanks/action</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:WashOutBank">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:check soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+         <start xsi:type="xsd:int">1</start>
+         <end xsi:type="xsd:int">1</end>
+         <amount xsi:type="xsd:double">100</amount>
+      </urn:check>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="check"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="63edfd13-472e-4c07-95a8-d4eca9c0851f" isOneWay="false" action="make" name="make" bindingOperationName="make" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="3a547413-64be-4453-9e35-8ac63a23bbcf" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.99.101:5000/wsbanks/action</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:WashOutBank">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:make soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+         <start xsi:type="xsd:int">?</start>
+         <end xsi:type="xsd:int">?</end>
+         <user xsi:type="xsd:int">?</user>
+         <amount xsi:type="xsd:double">?</amount>
+      </urn:make>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="make"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
