@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="d6f4cf65-0086-4b4b-9b5e-ee4976b23769" activeEnvironment="Default" name="LaboratoryTestCases" soapui-version="5.3.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="833cc925-9fee-4f50-b61f-6781ff469f8c" wsaVersion="NONE" name="OperationESBBinding" type="wsdl" bindingName="{http://j2ee.netbeans.org/wsdl/BpelOrquestation/src/OperationESB}OperationESBBinding" soapVersion="1_1" anonymous="optional" definition="http://localhost:9080/OperationESBService/OperationESBPort?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:9080/OperationESBService/OperationESBPort?wsdl"><con:part><con:url>http://localhost:9080/OperationESBService/OperationESBPort?wsdl</con:url><con:content><![CDATA[<definitions name="OperationESB" targetNamespace="http://j2ee.netbeans.org/wsdl/BpelOrquestation/src/OperationESB" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://j2ee.netbeans.org/wsdl/BpelOrquestation/src/OperationESB" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <types></types>
+  <message name="OperationESBOperationResponse">
+    <part name="response" type="xsd:boolean"></part>
+  </message>
+  <message name="OperationESBOperationRequest">
+    <part name="userId" type="xsd:int"></part>
+    <part name="productId" type="xsd:int"></part>
+    <part name="startAccount" type="xsd:int"></part>
+    <part name="endAccount" type="xsd:int"></part>
+    <part name="amount" type="xsd:double"></part>
+  </message>
+  <portType name="OperationESBPortType">
+    <operation name="OperationESBOperation">
+      <input message="tns:OperationESBOperationRequest" name="input1"></input>
+      <output message="tns:OperationESBOperationResponse" name="output1"></output>
+    </operation>
+  </portType>
+  <binding name="OperationESBBinding" type="tns:OperationESBPortType">
+    <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="OperationESBOperation">
+      <soap:operation/>
+      <input name="input1">
+        <soap:body namespace="http://j2ee.netbeans.org/wsdl/BpelOrquestation/src/OperationESB" use="literal"/>
+      </input>
+      <output name="output1">
+        <soap:body namespace="http://j2ee.netbeans.org/wsdl/BpelOrquestation/src/OperationESB" use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="OperationESBService">
+    <port binding="tns:OperationESBBinding" name="OperationESBPort">
+      <soap:address location="http://luisgil-pc:9080/OperationESBService/OperationESBPort"/>
+    </port>
+  </service>
+  <plnk:partnerLinkType name="OperationESB">
+    <!--A partner link type is automatically generated when a new port type is added. Partner link types are used by BPEL processes. 
+In a BPEL process, a partner link represents the interaction between the BPEL process and a partner service. Each partner link is associated with a partner link type.
+A partner link type characterizes the conversational relationship between two services. The partner link type can have one or two roles.-->
+    <plnk:role name="OperationESBPortTypeRole" portType="tns:OperationESBPortType"/>
+  </plnk:partnerLinkType>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://luisgil-pc:9080/OperationESBService/OperationESBPort</con:endpoint></con:endpoints><con:operation id="73a02a5e-2704-4eaf-881e-f5aa9cff6452" isOneWay="false" action="" name="OperationESBOperation" bindingOperationName="OperationESBOperation" type="Request-Response" outputName="output1" inputName="input1" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="9a1fc766-a347-4f5c-bb25-9acde307a7ac" name="Case1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://luisgil-pc:9080/OperationESBService/OperationESBPort</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:oper="http://j2ee.netbeans.org/wsdl/BpelOrquestation/src/OperationESB">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <oper:OperationESBOperation>
+         <userId>10</userId>
+         <productId>2</productId>
+         <startAccount>10</startAccount>
+         <endAccount>20</endAccount>
+         <amount>199</amount>
+      </oper:OperationESBOperation>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://j2ee.netbeans.org/wsdl/BpelOrquestation/src/OperationESB/OperationESBPortType/input1"/><con:wsrmConfig version="1.2"/></con:call><con:call id="fd42e9bc-4cdf-4c73-b2db-ac84619cf2b6" name="Case2"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://luisgil-pc:9080/OperationESBService/OperationESBPort</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:oper="http://j2ee.netbeans.org/wsdl/BpelOrquestation/src/OperationESB">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <oper:OperationESBOperation>
+         <userId>1</userId>
+         <productId>1</productId>
+         <startAccount>1</startAccount>
+         <endAccount>20</endAccount>
+         <amount>199</amount>
+      </oper:OperationESBOperation>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://j2ee.netbeans.org/wsdl/BpelOrquestation/src/OperationESB/OperationESBPortType/input1"/><con:wsrmConfig version="1.2"/></con:call><con:call id="86ae5c42-e5bc-46e2-b2b8-78073e9e74d5" name="Case3"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://luisgil-pc:9080/OperationESBService/OperationESBPort</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:oper="http://j2ee.netbeans.org/wsdl/BpelOrquestation/src/OperationESB">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <oper:OperationESBOperation>
+         <userId>1</userId>
+         <productId>1</productId>
+         <startAccount>1</startAccount>
+         <endAccount>2</endAccount>
+         <amount>199</amount>
+      </oper:OperationESBOperation>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://j2ee.netbeans.org/wsdl/BpelOrquestation/src/OperationESB/OperationESBPortType/input1"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

@@ -99,6 +99,17 @@
 				"description": ""
 			},
 			"response": []
+		},
+		{
+			"name": "Ver transacciones",
+			"request": {
+				"url": "192.168.99.101:5000/transactions",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
 		}
 	]
 }
